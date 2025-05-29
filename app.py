@@ -6,10 +6,10 @@ import pandas as pd
 model = joblib.load('stacking_stroke_model.pkl')
 
 st.set_page_config(page_title="Dự đoán đột quỵ", layout="centered")
-st.title("💡 Dự đoán nguy cơ đột quỵ")
+st.title(" Dự đoán nguy cơ đột quỵ")
 
 # Giao diện nhập liệu
-st.header("📝 Nhập thông tin bệnh nhân:")
+st.header(" Nhập thông tin bệnh nhân:")
 
 gender = st.selectbox("Giới tính", ["Nam", "Nữ"])
 age = st.slider("Tuổi", 0, 120, 50)
@@ -47,12 +47,12 @@ if st.button("🔍 Dự đoán nguy cơ đột quỵ"):
         threshold = 0.3
         prediction = int(proba >= threshold)
 
-        st.subheader("📊 Kết quả:")
-        st.write(f"🔬 Xác suất bị đột quỵ: **{proba:.2%}**")
+        st.subheader(" Kết quả:")
+        st.write(f" Xác suất bị đột quỵ: **{proba:.2%}**")
 
         if prediction == 1:
-            st.error("⚠️ Cảnh báo: Nguy cơ cao bị đột quỵ!")
+            st.error(" Cảnh báo: Nguy cơ cao bị đột quỵ!")
         else:
-            st.success("✅ Nguy cơ thấp. Tiếp tục theo dõi sức khỏe định kỳ.")
+            st.success(" Nguy cơ thấp. Tiếp tục theo dõi sức khỏe định kỳ.")
     except Exception as e:
         st.error(f"Đã xảy ra lỗi khi dự đoán: {e}")
